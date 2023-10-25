@@ -120,20 +120,16 @@
         </div>
 
         <div class="header">
-            <h2>A contagem regressiva começou!</h2>
+            <h2>Estamos entusiasmados em anunciar um evento especial que você não vai querer perder!</h2>
 
-            <p id="countdown"></p>
         </div>
 
         <div class="content">
-            <h1 class="bold">Estamos entusiasmados em anunciar um evento especial que você não vai querer perder!</h1>
             <p>Guarde a data e junte-se a nós para a emocionante revelação da nossa mais recente coleção,
                 a "<strong class="bold">Legacy</strong>" da <strong class="bold">Raffer</strong>. Esta é a sua
                 oportunidade de explorar o que há
                 de mais sofisticado
                 e elegante na moda masculina!</p>
-
-            <button class="buttonStyle" id="marcarEvento">Adicionar Lembrete</button>
 
             <!-- Tabela para as imagens lado a lado -->
             <table class="image-table">
@@ -204,54 +200,6 @@
         </div>
     </div>
     <script>
-        var targetDate = new Date("2023-10-31T08:00:00").getTime();
-
-        function updateCountdown() {
-            var currentDate = new Date().getTime();
-            var timeRemaining = targetDate - currentDate;
-
-            if (timeRemaining > 0) {
-                var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
-
-                document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
-
-                setTimeout(updateCountdown, 1000);
-            } else {
-                document.getElementById("countdown").innerHTML = "Tempo esgotado!";
-            }
-        }
-
-        window.onload = function () {
-            updateCountdown();
-        };
-
-        document.getElementById('marcarEvento').addEventListener('click', function () {
-            const dataEvento = new Date('2023-10-31');
-            const tituloEvento = 'Showroom Raffer';
-            const descricaoEvento = 'Uma descrição do eventoGuarde a data e junte-se a nós para a emocionante revelação da nossa mais recente coleção, a "Legacy" da Raffer.';
-
-            const iCalContent = `BEGIN:VCALENDAR
-            VERSION:2.0
-            BEGIN:VEVENT
-            DTSTART:${dataEvento.toISOString().replace(/-|:|\.\d+/g, '')}
-            DTEND:${dataEvento.toISOString().replace(/-|:|\.\d+/g, '')}
-            SUMMARY:${tituloEvento}
-            DESCRIPTION:${descricaoEvento}
-            END:VEVENT
-            END:VCALENDAR`;
-
-            const blob = new Blob([iCalContent], { type: 'text/calendar' });
-            const url = URL.createObjectURL(blob);
-
-            const a = document.createElement('a');
-            a.href = url;
-            a.download = 'evento.ics';
-            a.click();
-            URL.revokeObjectURL(url);
-        });
     </script>
 </body>
 
