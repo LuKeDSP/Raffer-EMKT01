@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Raffer-EMKT</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+
+        #countdown {
+            color: #c99d67;
+            font-size: 24px;
+        }
+
+        .bold {
+            color: #000d3b;
+        }
+
+        /* Contêiner principal */
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        #containerLogo {
+            background-image: url(img/Ativo\ 2.png);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 50%;
+            display: flex;
+            justify-content: center;
+            width: 600px;
+            height: 200px;
+        }
+
+        #logo {
+            width: 200px;
+            margin: 5px 0 20px 0;
+        }
+
+        /* Cabeçalho */
+        .header {
+            background-color: #000d3b;
+            color: #ffffff;
+            padding: 20px;
+            text-align: center;
+            background-image: url(img/imgbg.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        /* Conteúdo */
+        .content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+
+        .buttonStyle {
+            padding: 20px 35px;
+            color: white;
+            background-color: #000d3b;
+            border-radius: 15px;
+            border-style: none;
+            margin: 0 0 20px 0;
+        }
+
+        .buttonStyle:hover {
+            cursor: pointer;
+            scale: 1.05;
+        }
+
+        /* Tabela para as imagens lado a lado */
+        .image-table {
+            width: 100%;
+            text-align: center;
+        }
+
+        .image-cell {
+            width: 50%;
+            padding: 0 10px;
+        }
+
+        /* Rodapé */
+        .footer {
+            background-color: #f2f2f2;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .icon:hover {
+            cursor: pointer;
+            scale: 1.05;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="containerLogo">
+        </div>
+
+        <div class="header">
+            <h2>A contagem regressiva começou!</h2>
+
+            <div id="countdown"></div>
+
+        </div>
+
+        <div class="content">
+            <h1 class="bold">Estamos entusiasmados em anunciar um evento especial que você não vai querer perder!</h1>
+            <p>Guarde a data e junte-se a nós para a emocionante revelação da nossa mais recente coleção,
+                a "<strong class="bold">Legacy</strong>" da <strong class="bold">Raffer</strong>. Esta é a sua
+                oportunidade de explorar o que há
+                de mais sofisticado
+                e elegante na moda masculina!</p>
+
+            <button class="buttonStyle" id="marcarEvento">Adicionar Lembrete</button>
+
+            <!-- Tabela para as imagens lado a lado -->
+            <table class="image-table">
+                <tr>
+                    <td class="image-cell">
+                        <img src="img/img1.png" alt="Imagem 1">
+                    </td>
+                    <td class="image-cell">
+                        <img src="img/img2.png" alt="Imagem 2">
+                    </td>
+                </tr>
+            </table>
+
+            <h2 class="bold">Sobre a coleção</h2>
+
+            <p>A coleção <strong class="bold">Legacy</strong> é a expressão da excelência em moda, representando uma
+                fusão única de
+                tradição e
+                inovação. Cada peça foi cuidadosamente criada para refletir a elegância atemporal com um toque moderno.
+                Não perca a oportunidade de fazer parte deste evento exclusivo e descobrir o que a Raffer preparou para
+                conquistar seus clientes elevando o estilo a um novo pilar de qualidade, acabamento e sofisticação em
+                cada detalhe.
+                Estamos animados para compartilhar este momento memorável com você! Esta é a sua chance de ser uma das
+                primeiras pessoas a experimentar a sofisticação e o estilo impecável que definem a Raffer Legacy
+            </p>
+            <img src="img/img3.png" alt="Imagem 3">
+            <p>Estamos ansiosos para vê-lo lá!</p>
+
+            <h2 class="bold">31/10/2023 às 08:00h</h2>
+
+            <p>Para obter mais informações e acessar o evento, fique atento ao link que será compartilhado em breve!
+                <br>
+                <br>
+                Atenciosamente, <strong class="bold">Equipe Raffer</strong>.
+            </p>
+
+        </div>
+        <div class="footer">
+            <p>Nossas redes sociais:</p>
+            <table align="center">
+                <tr>
+                    <td class="icon">
+                        <a href="https://www.instagram.com/rafferoficial/">
+                            <?xml version="1.0" encoding="utf-8"?>
+                            <img width="50px" height="50px" src="img/Ativo 1@0.75x.png" alt="">
+                        </a>
+                    </td>
+
+                    <td class="icon">
+                        <a href="https://www.facebook.com/rafferoficial">
+                            <?xml version="1.0" encoding="utf-8"?>
+                            <img width="50px" height="50px" src="img/Ativo 2@0.75x.png" alt="">
+                        </a>
+                    </td>
+
+                    <td>
+
+                    </td>
+
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+        const dataAlvo = new Date('2023-10-31 08:00:00').getTime();
+
+        const x = setInterval(function () {
+            const agora = new Date().getTime();
+            const diferenca = dataAlvo - agora;
+
+            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+            const countdownElement = document.getElementById('countdown');
+            countdownElement.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+
+            if (diferenca < 0) {
+                clearInterval(x);
+                countdownElement.innerHTML = "A contagem regressiva terminou!";
+            }
+        }, 1000);
+
+        document.getElementById('marcarEvento').addEventListener('click', function () {
+            const dataEvento = new Date('2023-10-31');
+            const tituloEvento = 'Showroom Raffer';
+            const descricaoEvento = 'Uma descrição do eventoGuarde a data e junte-se a nós para a emocionante revelação da nossa mais recente coleção, a "Legacy" da Raffer.';
+
+            const iCalContent = `BEGIN:VCALENDAR
+            VERSION:2.0
+            BEGIN:VEVENT
+            DTSTART:${dataEvento.toISOString().replace(/-|:|\.\d+/g, '')}
+            DTEND:${dataEvento.toISOString().replace(/-|:|\.\d+/g, '')}
+            SUMMARY:${tituloEvento}
+            DESCRIPTION:${descricaoEvento}
+            END:VEVENT
+            END:VCALENDAR`;
+
+            const blob = new Blob([iCalContent], { type: 'text/calendar' });
+            const url = URL.createObjectURL(blob);
+
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = 'evento.ics';
+            a.click();
+            URL.revokeObjectURL(url);
+        });
+    </script>
+</body>
+
+</html>
