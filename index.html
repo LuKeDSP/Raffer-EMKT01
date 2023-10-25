@@ -13,7 +13,6 @@
             justify-content: center;
             font-family: Arial, sans-serif;
             background-color: #f2f2f2;
-            width: 600px;
         }
 
         a {
@@ -116,14 +115,14 @@
 <body>
     <div class="container">
         <div id="containerLogo">
-            <img width="200px" height="100px" src="https://github.com/LuKeDSP/Raffer-EMKT01/blob/main/img/logo.png?raw=true" alt="">
+            <img width="200px" height="100px"
+                src="https://github.com/LuKeDSP/Raffer-EMKT01/blob/main/img/logo.png?raw=true" alt="">
         </div>
 
         <div class="header">
             <h2>A contagem regressiva começou!</h2>
 
-            <div id="countdown"></div>
-
+            <p id="countdown"></p>
         </div>
 
         <div class="content">
@@ -140,10 +139,12 @@
             <table class="image-table">
                 <tr>
                     <td class="image-cell">
-                        <img src="https://github.com/LuKeDSP/Raffer-EMKT01/blob/main/img/img1.png?raw=true" alt="Imagem 1">
+                        <img src="https://github.com/LuKeDSP/Raffer-EMKT01/blob/main/img/img1.png?raw=true"
+                            alt="Imagem 1">
                     </td>
                     <td class="image-cell">
-                        <img src="https://github.com/LuKeDSP/Raffer-EMKT01/blob/main/img/img2.png?raw=true" alt="Imagem 2">
+                        <img src="https://github.com/LuKeDSP/Raffer-EMKT01/blob/main/img/img2.png?raw=true"
+                            alt="Imagem 2">
                     </td>
                 </tr>
             </table>
@@ -179,14 +180,18 @@
                     <td class="icon">
                         <a href="https://www.instagram.com/rafferoficial/">
                             <?xml version="1.0" encoding="utf-8"?>
-                            <img width="50px" height="50px" src="https://github.com/LuKeDSP/Raffer-EMKT01/blob/main/img/instagram.png?raw=true" alt="">
+                            <img width="50px" height="50px"
+                                src="https://github.com/LuKeDSP/Raffer-EMKT01/blob/main/img/instagram.png?raw=true"
+                                alt="">
                         </a>
                     </td>
 
                     <td class="icon">
                         <a href="https://www.facebook.com/rafferoficial">
                             <?xml version="1.0" encoding="utf-8"?>
-                            <img width="50px" height="50px" src="https://github.com/LuKeDSP/Raffer-EMKT01/blob/main/img/facebook.png?raw=true" alt="">
+                            <img width="50px" height="50px"
+                                src="https://github.com/LuKeDSP/Raffer-EMKT01/blob/main/img/facebook.png?raw=true"
+                                alt="">
                         </a>
                     </td>
 
@@ -199,25 +204,29 @@
         </div>
     </div>
     <script>
-        const dataAlvo = new Date('2023-10-31 08:00:00').getTime();
+        var targetDate = new Date("2023-10-31T08:00:00").getTime();
 
-        const x = setInterval(function () {
-            const agora = new Date().getTime();
-            const diferenca = dataAlvo - agora;
+        function updateCountdown() {
+            var currentDate = new Date().getTime();
+            var timeRemaining = targetDate - currentDate;
 
-            const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
-            const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
-            const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+            if (timeRemaining > 0) {
+                var days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-            const countdownElement = document.getElementById('countdown');
-            countdownElement.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+                document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s";
 
-            if (diferenca < 0) {
-                clearInterval(x);
-                countdownElement.innerHTML = "A contagem regressiva terminou!";
+                setTimeout(updateCountdown, 1000);
+            } else {
+                document.getElementById("countdown").innerHTML = "Tempo esgotado!";
             }
-        }, 1000);
+        }
+
+        window.onload = function () {
+            updateCountdown();
+        };
 
         document.getElementById('marcarEvento').addEventListener('click', function () {
             const dataEvento = new Date('2023-10-31');
